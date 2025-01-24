@@ -1,8 +1,7 @@
 The Open Logic Project
 ======================
 
-[![Build
-Status](https://github.com/OpenLogicProject/OpenLogic/actions/workflows/build.yml/badge.svg)](https://github.com/OpenLogicProject/OpenLogic/actions/workflows/build.yml)
+[![BuildStatus](https://github.com/OpenLogicProject/OpenLogic/actions/workflows/build.yml/badge.svg)](https://github.com/OpenLogicProject/OpenLogic/actions/workflows/build.yml)
 
 The Open Logic Project is an open source, open access collection of
 materials on advanced logic, aimed mainly at philosophers, but also
