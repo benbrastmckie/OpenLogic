@@ -80,7 +80,7 @@ for any~$!A$.
 \begin{proof}
   \begin{enumerate}
     \item $\mSat{M}{\lnot\Diamond\lnot !A}[w]$ iff $\mSat/{M}{\Diamond\lnot
-      !A}$ by definition of $\mSat{M}{}[w]$. $\mSat{M}{\Diamond\lnot
+      !A}[w]$ by definition of $\mSat{M}{}[w]$. $\mSat{M}{\Diamond\lnot
       !A}[w]$ iff for some $w'$ with $Rww'$, $\mSat{M}{\lnot
       !A}[w']$. Hence, $\mSat/{M}{\Diamond\lnot !A}[w]$ iff for all
     $w'$ with $Rww'$, $\mSat/{M}{\lnot !A}[w']$. We also have
@@ -110,7 +110,7 @@ for any~$!A$.
   Let $\mModel{M} = \tuple{W, R, V}$ be a model, and suppose $w_1, w_2 \in
   W$ are such that:
   \begin{enumerate}
-  \item $w_1 \in V(p)$ if and only if $w_2 \in V(p)$; and
+  \item $w_1 \in V(p)$ if and only if $w_2 \in V(p)$ (for every !!{propositional variable} $p$); and
   \item for all $w \in W$: $Rw_1w$ if and only if $Rw_2w$.
   \end{enumerate}
   Using induction on !!{formula}s, show that for all !!{formula}s $!A$:

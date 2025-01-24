@@ -42,14 +42,14 @@ and so $\Value{t}{M}[s_1] = s_1(x_i) = s_2(x_i) = \Value{t}{M}[s_2]$.
 For the inductive step, assume that $t = \Atom{f}{t_1, \dots, t_k}$
 and that the claim holds for $t_1$, \dots, $t_k$. Then
 \begin{align*}
-  \Value{t}{M}[s_1] & = \Value{\Atom{f}{t_1, \dots, t_k}}{M}[s_1] =\\
-  & = \Assign{f}{M}(\Value{t_1}{M}[s_1], \dots, \Value{t_k}{M}[s_1])
+  \Value{t}{M}[s_1] & = \Value{\Atom{f}{t_1, \dots, t_k}}{M}[s_1] \\
+  & = \Assign{f}{M}(\Value{t_1}{M}[s_1], \dots, \Value{t_k}{M}[s_1]).
 \intertext{For $j = 1$, \dots,~$k$, the !!{variable}s of~$t_j$ are
-    among $x_1$, \dots,~$x_n$. By induction hypothesis,
+    among $x_1$, \dots,~$x_n$. By the induction hypothesis,
     $\Value{t_j}{M}[s_1] = \Value{t_j}{M}[s_2]$. So,}
-\Value{t}{M}[s_1] & = \Value{\Atom{f}{t_1, \dots, t_k}}{M}[s_1] =\\
-  & = \Assign{f}{M}(\Value{t_1}{M}[s_1], \dots, \Value{t_k}{M}[s_1]) =\\
-  & = \Assign{f}{M}(\Value{t_1}{M}[s_2], \dots, \Value{t_k}{M}[s_2]) =\\
+\Value{t}{M}[s_1] & = \Value{\Atom{f}{t_1, \dots, t_k}}{M}[s_1] \\
+  & = \Assign{f}{M}(\Value{t_1}{M}[s_1], \dots, \Value{t_k}{M}[s_1]) \\
+  & = \Assign{f}{M}(\Value{t_1}{M}[s_2], \dots, \Value{t_k}{M}[s_2]) \\
   & = \Value{\Atom{f}{t_1, \dots, t_k}}{M}[s_2] = \Value{t}{M}[s_2].
 \end{align*}
 \end{proof}
@@ -67,6 +67,8 @@ $!A$ is atomic, $!A$ can be:
 \iftag{prvFalse}{$\lfalse$,}{}
 $\Atom{R}{t_1, \dots, t_k}$ for a $k$-place predicate $R$ and terms
 $t_1$, \dots,~$t_k$, or $\eq[t_1][t_2]$ for terms $t_1$ and~$t_2$.
+In the latter two cases, we only demonstrate the forward direction of
+the !!{biconditional}, since the proof of the reverse is symmetrical.
 
 \begin{enumerate}
 \tagitem{prvTrue}{%
@@ -87,7 +89,7 @@ $t_1$, \dots,~$t_k$, or $\eq[t_1][t_2]$ for terms $t_1$ and~$t_2$.
     For $i = 1$, \dots,~$k$, $\Value{t_i}{M}[s_1] =
     \Value{t_i}{M}[s_2]$ by \olref{prop:valindep}. So we also have
     $\langle \Value{t_i}{M}[s_2], \ldots, \Value{t_k}{M}[s_2] \rangle
-    \in \Assign{R}{M}$.}
+    \in \Assign{R}{M}$, and hence $\Sat{M}{\indfrm}[s_2]$.}
 \item
   \indcase{!A}{\eq[t_1][t_2]}{suppose $\Sat{M}{\indfrm}[s_1]$.
     Then $\Value{t_1}{M}[s_1] = \Value{t_2}{M}[s_1]$. So,
@@ -231,10 +233,18 @@ variable assignments~$s$.
 \end{defn}
 
 If $\Sat{M}{!A}$, we also simply say that \emph{$!A$ is true
-  in~$\Struct{M}$.}
+in~$\Struct{M}$.} The notion of satisfaction naturally extends
+from individual !!{sentence}s to sets of !!{sentence}s.
+
+\begin{defn}
+\ollabel{defn:sat}
+If $\Gamma$ is a set of !!{sentence}s~$\Gamma$, we say that
+!!a{structure}~$\Struct M$ \emph{satisfies}~$\Gamma$,
+$\Sat{M}{\Gamma}$, iff $\Sat{M}{!A}$ for all $!A \in \Gamma$.
+\end{defn}
 
 \begin{prop}\ollabel{prop:sentence-sat-true}
-  Let $\Struct{M}$ be !!a{structure}, $!A$ be a sentence, and $s$ a
+  Let $\Struct{M}$ be !!a{structure}, $!A$ be !!a{sentence}, and $s$ a
   variable assignment.  $\Sat{M}{!A}$ iff $\Sat{M}{!A}[s]$.
 \end{prop}
 
@@ -339,7 +349,5 @@ M'$ such that $\Sat{M'}{\lforall[x][!A(x,f(x))]}$.
 $\lforall[x][!A(x,f(x))]$ is called a \emph{Skolem normal form} of
 $\lforall[x][\lexists[y][!A(x,y)]]$.)
 \end{prob}
-
-
 
 \end{document}
